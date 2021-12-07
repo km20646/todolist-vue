@@ -27,8 +27,10 @@ export default {
     },
     methods : {
         addTodo(){
+            console.log(this.newTodoItem);
             if(this.newTodoItem !==''){
-                this.$emit("addTodoItem",this.newTodoItem)
+                const text = this.newTodoItem.trim();
+                this.$store.commit("addOneItem",text);
                  this.clearInput();
             }
             // 아무것도 입력하지 않았을경우
